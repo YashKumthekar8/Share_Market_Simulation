@@ -1,5 +1,5 @@
 from flask import Flask
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSou
 import requests
 import datetime
 import re
