@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home</title>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+		/>
+	</head>
+
+	<body>
+		<nav id="navbar">
+			<ul>
+				<li class="item"><a href="/">Home</a></li>
+				<li class="item"><a href="/Portfolio">Portfolio</a></li>
+			</ul>
+		</nav>
+
+		<section id="Search">
+			<div class="marquee">
+				<marquee
+					>Reliance:&ensp; {{ details[0] }} &emsp;&emsp;&emsp;
+					TCS:&ensp; {{ details[1] }} &emsp;&emsp;&emsp;
+					Infosys:&ensp; {{ details[2] }} &emsp;&emsp;&emsp;
+					Wipro:&ensp; {{ details[3] }} &emsp;&emsp;&emsp; L&T:&ensp;
+					{{ details[4] }} &emsp;&emsp;&emsp; HDFC:&ensp; {{
+					details[5] }} &emsp;&emsp;&emsp; SBI:&ensp; {{ details[6] }}
+					&emsp;&emsp;&emsp; Zee Media:&ensp; {{ details[7] }}
+					&emsp;&emsp;&emsp; Ashok Leyland:&ensp; {{ details[8] }}
+					&emsp;&emsp;&emsp; Tech Mahindra:&ensp; {{ details[9]
+					}}</marquee
+				>
+			</div>
+
+			<h1 class="site-name">Share Mark</h1>
+			<div class="Search-bar">
+				<form
+					class="navbar-form"
+					role="search"
+					action="{{ url_for('Search') }}"
+					method="POST"
+
+				>
+					<div class="input-group add-on">
+						<input
+							class="form-control"
+							placeholder="Search"
+							name="srch-term"
+							id="srch-term"
+							type="text"
+						/>
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<section>
+			<div class="rules">
+				<h2>Instructions and Rules</h2>
+				<div class="rules-points">
+					<p>=>&emsp; Share Mark is an stock market simulator.</p>
+					<p>
+						=>&emsp; You now have Rs 1 crore cash in your portfolio
+						account & a Rs 1 crore intraday trading limit.You can
+						start trading right away!!
+					</p>
+					<p>
+						=>&emsp; With this virtual money you can invest in shares of
+						different companies.
+					</p>
+					<p>
+						=>&emsp; All buy and sell transactions cannot exceed the
+						actual volumes in the market.
+					</p>
+					<p>
+						=>&emsp; You can reset your portfolio to Rs 1 crore anytime you want to.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<div id="details"></div>
+
+		<section class="cards-property">
+			<div class="cardds">
+				<div class="card-deck">
+					<div class="card">
+						<img src="{{ image_file1 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Reliance owns businesses across India engaged in
+								energy, petrochemicals, textiles, natural
+								resources, retail, and telecommunications.
+								Reliance is one of the most profitable companies
+								in India. On 10 September 2020, Reliance
+								Industries became the first Indian company to
+								cross $200 billion in market capitalisation.
+							</p>
+							<a
+								href="/Reliance"
+								class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+					<div class="card">
+						<img src="{{ image_file2 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Tata Consultancy Services (TCS) is an Indian
+								multinational technology company that
+								specializes in information technology (IT)
+								services and consultingAs of February 2021 TCS
+								is largest company in the IT sector in the world
+								by Market capitalisation of $169.2 billion.
+							</p>
+							<a href="/TCS" class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+					<div class="card">
+						<img src="{{ image_file3 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Infosys Limited is an Indian that provides
+								business consulting, information technology and
+								outsourcing services.Infosys is the
+								second-largest Indian IT company after Tata
+								Consultancy Services by 2020 revenue figures and
+								the 602nd largest public company in the world as
+								per Forbes Global 2000 ranking
+							</p>
+							<a
+								href="/Infosys"
+								class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+				</div>
+				<div class="card-deck">
+					<div class="card">
+						<img src="{{ image_file4 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Wipro Limited is an Indian multinational
+								corporation that provides information
+								technology, consulting and business process
+								services. It is headquartered in Bangalore,
+								Karnataka, India. In 2013, Wipro separated its
+								non-IT businesses and formed the privately owned
+								Wipro Enterprises. Wipro has shifted to Work
+								from Anywhere model since March 2020.
+							</p>
+							<a href="/Wipro" class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+					<div class="card">
+						<img src="{{ image_file5 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Larsen & Toubro Limited, commonly known as L&T,
+								is an Indian multinational technology,
+								engineering, construction, manufacturing and
+								financial services conglomerate. The company has
+								business interests in basic and heavy
+								engineering, construction, realty, manufacturing
+								of capital goods, information technology, and
+								financial services.
+							</p>
+							<a href="/L&T" class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+					<div class="card">
+						<img src="{{ image_file6 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								HDFC Bank Limited is an Indian banking and
+								financial services company headquartered in
+								Mumbai, Maharashtra. HDFC Bank is India’s
+								largest private sector bank by assets. It is the
+								largest bank in India by market capitalisation
+								as of March 2020.
+							</p>
+							<a href="/HDFC" class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+				</div>
+				<div class="card-deck">
+					<div class="card">
+						<img src="{{ image_file7 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								SBI is the 43rd largest bank in the world and
+								ranked 221st in the Fortune Global 500 list of
+								the world's biggest corporations of 2020. It is
+								a public sector bank and the largest bank in
+								India with a 23% market share by assets and a
+								25% share of the total loan and deposits market.
+							</p>
+							<a href="/SBI" class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+					<div class="card">
+						<img src="{{ image_file8 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Zee News Ltd operates news, current affairs and
+								entertainment channels.The Company has an
+								arrangement with Zee Turner to distribute their
+								pay channels bouquet on DTH platforms in India
+								and neighbouring countries.
+							</p>
+							<a
+								href="/Zee Media"
+								class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+					<div class="card">
+						<img src="{{ image_file9 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Ashok Leyland has been a major presence in
+								India`s commercial vehicle industry.The company
+								offers a wide range of products like buses ,
+								trucks ,engines , defence & special vehicles. In
+								the populous Indian metros, four out of the five
+								State Transport Undertaking (STU) buses come
+								from Ashok Leyland.
+							</p>
+							<a
+								href="/Ashok Leyland"
+								class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+					<div class="card">
+						<img src="{{ image_file10 }}" />
+						<div class="card-body">
+							<p class="card-text">
+								Tech Mahindra Ltd offers Information Technology
+								(IT) services and solution to telecommunications
+								sector across the world. The company also
+								engagged in the business of Telecom Service
+								Provider, Business Process Outsourcing, Telecom
+								Equipment Manufacturer.
+							</p>
+							<a
+								href="/Tech Mahindra"
+								class="btn btn-info stretched-link"
+								>Transact</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

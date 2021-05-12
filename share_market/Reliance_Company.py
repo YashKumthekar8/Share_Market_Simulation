@@ -9,7 +9,7 @@ import time
 import datetime
 
 
-class Reliance():
+class RelianceComp():
 
     share_value = []
     details = {}
@@ -57,41 +57,12 @@ class Reliance():
         open_price = div.select('div > p')[1].get_text(strip=True)
         self.details['open_price'] = open_price
 
-        print(self.details)
-        print(self.share_value)
-
         link = 'https://www.moneycontrol.com/india/stockpricequote/refineries/relianceindustries/RI'
-        self.plotGraph()
+        self.details['link'] = link
 
+    
+def main():
+    pass
 
-    def plotGraph(self):
-        plt.xkcd()
-
-        self.share_value = [float(item) for item in self.share_value]
-
-        try:
-            plt.plot(self.time_line, self.share_value, color='k', linewidth=3,
-                    marker='o', label='Share Value Trend')
-        except ValueError:
-            print('Value Error')
-        plt.fill_between(self.time_line, self.share_value, facecolor='pink', interpolate=True)
-        plt.ylabel('Share Value')
-        plt.title('Share Value Trend Of Reliance Company')
-        plt.tight_layout()
-        plt.grid(False)
-        plt.savefig('plot.png')
-        plt.show()
-
-def timerPrint():
-    reliance = Reliance()
-    now_time = datetime.datetime.now()
-    tim = now_time.hour
-    mins = now_time.minute
-    while tim != 17 and mins != 31:
-        reliance.scrap_data()
-        time.sleep(120)
-
-
-timerPrint()
-
-
+if __name__ == "__main__":
+    main()

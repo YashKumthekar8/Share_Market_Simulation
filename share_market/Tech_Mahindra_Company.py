@@ -9,8 +9,7 @@ import time
 import datetime
 
 
-class WiproComp():
-
+class Tech_MahindraComp():
     share_value = []
     details = {}
     time_line = []
@@ -24,7 +23,7 @@ class WiproComp():
 
 
     def scrap_data(self):
-        url = "https://moneybhai.moneycontrol.com/snapshot/stock-W.html"
+        url = "https://moneybhai.moneycontrol.com/snapshot/stock-TM4.html"
         r = requests.get(url)
         html = r.text
         soup = BeautifulSoup(html, 'html.parser')
@@ -57,11 +56,10 @@ class WiproComp():
         open_price = div.select('div > p')[1].get_text(strip=True)
         self.details['open_price'] = open_price
 
-        link = 'https://www.moneycontrol.com/india/stockpricequote/computers-software/wipro/W'
+        link = 'https://www.moneycontrol.com/india/stockpricequote/computers-software/techmahindra/TM4'
         self.details['link'] = link
 
     
-
 def main():
     pass
 

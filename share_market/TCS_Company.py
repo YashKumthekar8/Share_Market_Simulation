@@ -6,10 +6,9 @@ import re
 from matplotlib import pyplot as plt
 import threading
 import time
-import datetime
 
 
-class TCS():
+class TCSComp():
 
     share_value = []
     details = {}
@@ -24,6 +23,7 @@ class TCS():
 
 
     def scrap_data(self):
+
         url = "https://moneybhai.moneycontrol.com/snapshot/stock-TCS.html"
         r = requests.get(url)
         html = r.text
@@ -57,37 +57,14 @@ class TCS():
         open_price = div.select('div > p')[1].get_text(strip=True)
         self.details['open_price'] = open_price
 
-        print(self.details)
-        print(self.share_value)
 
         link = 'https://www.moneycontrol.com/india/stockpricequote/computers-software/tataconsultancyservices/TCS'
-        self.plotGraph()
-        return self.share_value
+        self.details['link'] = link
+ 
 
 
-    def plotGraph(self):
-        plt.xkcd()
+def main():
+    pass
 
-        self.share_value = [float(item) for item in self.share_value]
-
-        try:
-            plt.plot(self.time_line, self.share_value, color='k', linewidth=3,
-                    marker='o', label='Share Value Trend')
-        except ValueError:
-            print('Value Error')
-        plt.fill_between(self.time_line, self.share_value, facecolor='pink', interpolate=True)
-        plt.ylabel('Share Value')
-        plt.title('Share Value Trend Of TCS Company')
-        plt.tight_layout()
-        plt.grid(False)
-        plt.savefig('plot.png')
-        plt.show()
-
-def timerPrint():
-    tcs = TCS()
-    now_time = datetime.datetime.now()
-    tim = now_time.hour
-    mins = now_time.minute
-    while tim != 18:
-        tcs.scrap_data()
-        time.sleep(120)
+if __name__ == "__main__":
+    main()

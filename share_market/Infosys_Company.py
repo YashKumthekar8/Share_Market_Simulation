@@ -9,7 +9,7 @@ import time
 import datetime
 
 
-class Infosys():
+class InfosysComp():
 
     share_value = []
     details = {}
@@ -47,7 +47,7 @@ class Infosys():
         p = soup.find("p", class_="comp-vol")
         volume = p.find("strong").get_text()
         self.details['volume'] = volume
-
+    
         ul = soup.find("ul", class_="key-info-list")
         li = ul.find("li")
         market_cap = li.select('li > p')[1].get_text(strip=True)
@@ -57,11 +57,8 @@ class Infosys():
         open_price = div.select('div > p')[1].get_text(strip=True)
         self.details['open_price'] = open_price
 
-        print(self.details)
-        print(self.share_value)
-
         link = 'https://www.moneycontrol.com/india/stockpricequote/computers-software/infosys/ITS'
-        self.plotGraph()
+        self.details['link'] = link
 
 
     def plotGraph(self):
@@ -82,16 +79,8 @@ class Infosys():
         plt.savefig('plot.png')
         plt.show()
 
-def timerPrint():
-    infosys = Infosys()
-    now_time = datetime.datetime.now()
-    tim = now_time.hour
-    mins = now_time.minute
-    while tim != 17 and mins != 31:
-        infosys.scrap_data()
-        time.sleep(120)
+def main():
+    pass
 
-
-timerPrint()
-
-
+if __name__ == "__main__":
+    main()
